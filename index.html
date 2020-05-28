@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Williams magiske sjappe</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+</head>
+
+<body>
+    <style>
+        @font-face {
+            font-family: "Williamsfont";
+            src: url(Font/Light.otf)
+        }
+
+    </style>
+
+    <div class="container">
+        <div class="left"></div>
+        <div class="right"></div>
+
+        <div class="nav">
+        </div>
+
+        <div class="right-sidebar">
+
+            <ul>
+
+
+                <li><a href="Collection.html">Collection</a></li>
+                <br>
+                <li><a href="Kontakt.html">Kontakt oss</a></li>
+            </ul>
+
+        </div>
+
+        <div class="left-bottom">
+            <p></p>
+        </div>
+
+        <div class="left-sidebar">
+
+
+            <h1 class="product-title">Williams brukte sokker</h1>
+
+            <p class="desc">Limited edition fall/winter 2020 collection sokker brukt av selveste William Bui, forskning viser at man blir 54% raskere av sokkene.</p>
+            <br>
+            <p class="desc">Overmateriale: 80% bomull, 16% polyakryl, 4% elastan</p>
+            <br>
+            <p class="desc">Materiale: Ribbestrikk, strikket</p>
+            <br>
+            <p class="desc">Vedlikeholdsråd: Maskinvask på 30°C, Stryk ikke</p>
+            <br>
+            <p id="price">Pris : USD $1699</p>
+            <br>
+            <br>
+            <a href="https://www.paypal.me/WeFinnaGetRich?locale.x=no_NO" class="btn">KJØP NÅ</a>
+
+        </div>
+
+        <div class="product" id="product">
+            <img src="Img/dirty%20socks.png">
+        </div>
+
+
+
+    </div>
+
+    <script type="text/javascript">
+        TweenMax.from(".right", 1.6, {
+            delay: 0.6,
+            width: 0,
+            ease: Expo.easeInOut
+        });
+
+      
+        TweenMax.from(".product-title", 2, {
+            delay: 1.6,
+            opacity: 0,
+            y: 20,
+            ease: Expo.easeInOut
+        });
+
+        TweenMax.from(".desc", 2, {
+            delay: 1.8,
+            opacity: 0,
+            y: 20,
+            ease: Expo.easeInOut
+        });
+
+        TweenMax.from("#price", 2, {
+            delay: 2,
+            opacity: 0,
+            y: 20,
+            ease: Expo.easeInOut
+        });
+
+        TweenMax.from(".btn", 2, {
+            delay: 2.2,
+            opacity: 0,
+            y: 20,
+            ease: Expo.easeInOut
+        });
+
+        TweenMax.staggerFrom(".right-sidebar ul li", 1, {
+            delay: 2.6,
+            opacity: 0,
+            y: 20,
+            ease: Power3.easeInOut
+        }, 0.08);
+
+
+        TweenMax.staggerFrom(".media ul li", 1, {
+            delay: 3.6,
+            opacity: 0,
+            y: 20,
+            ease: Power3.easeInOut
+        }, 0.08);
+
+        TweenMax.from(".product img", 3, {
+            delay: 2,
+            // opacity: 0,
+            // y: 20,
+            scale: 0,
+            ease: Expo.easeInOut
+        });
+
+        TweenMax.to(".product img", 3, {
+            delay: 2,
+            // opacity: 0,
+            // y: 20,
+            scale: 1,
+            ease: Expo.easeInOut
+        });
+
+    </script>
+</body>
+
+</html>

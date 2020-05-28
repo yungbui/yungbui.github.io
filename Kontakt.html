@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Williams magiske sjappe</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+</head>
+
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-database.js"></script>
+
+<script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyDagKbBRjRbD3V76RtMfUD4pD1Vx53xrNg",
+        authDomain: "kontakt-fb831.firebaseapp.com",
+        databaseURL: "https://kontakt-fb831.firebaseio.com",
+        projectId: "kontakt-fb831",
+        storageBucket: "kontakt-fb831.appspot.com",
+        messagingSenderId: "116308315618",
+        appId: "1:116308315618:web:a3035553540a10cf573dbb"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    let db = firebase.database();
+
+    let Kontakt = db.ref("Kontakt")
+
+    function leggInn() {
+        var Navn_in = document.getElementById("txtNavn").value;
+        var Melding_in = document.getElementById("txtMelding").value;
+        var Email_in = document.getElementById("txtEmail").value;
+
+
+        let new_object = Kontakt.child(Navn_in); // her settes key
+
+        new_object.set(
+
+            {
+
+                Navn: Navn_in,
+                Email: Email_in,
+                Melding: Melding_in,
+
+
+
+            });
+
+    }
+
+    let txtNavn = document.querySelector("#txtNavn");
+    let txtInfo = document.querySelector("#txtNavn");
+    let teller = 0;
+
+
+
+
+
+    function visDatabase() {
+
+
+        window.alert("Meldingen har blitt sendt inn!");
+    }
+
+</script>
+
+<body>
+<style>
+        @font-face {
+            font-family: "Williamsfont";
+            src: url(Font/Light.otf)
+        }
+
+    </style>
+
+    <div class="container">
+        <div class="left"></div>
+        <div class="right"></div>
+
+
+
+        <div class="nav">
+
+
+
+            <div class="contact-section">
+                <div class="inner-width">
+                    <h1>Kontakt oss</h1>
+                    <input type="text" id="txtNavn" class="name" placeholder="Navn">
+                    <input type="email" id="txtEmail" class="email" placeholder="Email">
+                    <textarea rows="1" id="txtMelding" id="txtForlag" placeholder="Melding" class="message"></textarea>
+                    <button type="button" value="Send Inn" id="btnSend Inn" onclick="leggInn();visDatabase()">send inn</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="right-sidebar">
+
+            <ul>
+
+
+                <li><a href="Collection.html">Collection</a></li>
+                <br>
+                <li><a href="index.html">Produkt</a></li>
+            </ul>
+
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+    <script type="text/javascript">
+        TweenMax.from(".right", 1.6, {
+            delay: 0.6,
+            // opacity: 0,
+            // x: -20,
+            width: 0,
+            ease: Expo.easeInOut
+        });
+
+        TweenMax.staggerFrom(".right-sidebar ul li", 1, {
+            delay: 2.6,
+            opacity: 0,
+            y: 20,
+            ease: Power3.easeInOut
+        }, 0.08);
+
+        
+
+        TweenMax.staggerFrom(".media ul li", 1, {
+            delay: 3.6,
+            opacity: 0,
+            y: 20,
+            ease: Power3.easeInOut
+        }, 0.08);
+
+        
+    </script>
+</body>
+
+</html>
